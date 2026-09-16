@@ -1,0 +1,20 @@
+workflows:
+  flutter-workflow:
+    name: Flutter APK Build
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+    environment:
+      flutter: stable
+      java: 17
+      vars:
+        PUB_HOSTED_URL: "https://pub.flutter-io.cn"
+        FLUTTER_STORAGE_BASE_URL: "https://storage.flutter-io.cn"
+    scripts:
+      - name: Get Flutter packages
+        script: |
+          flutter pub get
+      - name: Build APK
+        script: |
+          flutter build apk --release
+    artifacts:
+      - build/app/outputs/flutter-apk/app-release.apk
