@@ -7,7 +7,7 @@ class ApiService {
   // آدرس هاب مرکزی — اولین جایی که اپ برای پیدا کردن هاست هر مدرسه بهش وصل می‌شه.
   // اگه سیستم چندهاستی نمی‌خواید و فقط یه بک‌اند دارید، این رو خالی بذارید
   // و مستقیم مقدار baseUrl رو به آدرس همون بک‌اند ثابت کنید.
-  static const String hubUrl = 'https://hub.nexa-school.ir';
+  static const String hubUrl = 'https://nexa-school.ir';
 
   static String? _resolvedBaseUrl;
 
