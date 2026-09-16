@@ -1,0 +1,31 @@
+// این خطوط رو بالای فایل frontend/android/app/build.gradle، قبل از android { ... } بذار:
+
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+// -----------------------------------------------------------------
+
+// این بلوک رو داخل android { ... } (معمولا نزدیک انتهاش) اضافه کن:
+
+android {
+    // ... تنظیمات موجود (compileSdkVersion, defaultConfig, و ...) دست‌نخورده می‌مونه
+
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+
+    buildTypes {
+        release {
+            // این خط از قبل احتمالا "signingConfig signingConfigs.debug" بوده؛ باید بشه:
+            signingConfig signingConfigs.release
+        }
+    }
+}
