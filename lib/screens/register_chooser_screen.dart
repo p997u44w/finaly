@@ -14,10 +14,10 @@ import 'deputy_entry_screen.dart';
 class RegisterChooserScreen extends StatefulWidget {
   const RegisterChooserScreen({super.key});
   @override
-  State<LoginScreen> createState() => _RegisterChooserScreenState();
+  State<RegisterChooserScreen> createState() => _RegisterChooserScreenState();
 }
 
-class _RegisterChooserScreenState extends State<LoginScreen> with TickerProviderStateMixin {
+class _RegisterChooserScreenState extends State<RegisterChooserScreen> with TickerProviderStateMixin {
   // انیمیشن ورود مرحله‌ای: لوگو -> عنوان -> دکمه‌ها
   late final AnimationController _entrance;
   late final Animation<double> _logoScale;
